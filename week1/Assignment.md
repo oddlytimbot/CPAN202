@@ -16,6 +16,12 @@ To complete assignments for the course, you'll need to get familiar with using G
 
 Git is currently the most popular programming tool in existence, used by all sizes of development projects for tracking and versioning code.
 
+Git works via a remote repository (called the "origin") and a local client application. You'll need to download the client software for your operating system if you don't already have it.
+
+[Download Git](https://git-scm.com/downloads)
+
+Next, you'll need an account to access the secure origin for the course.
+
 To get started, visit oddlylabs.com and create an account. Once complete, request to be added to the "Humber" organization.
 
 Create a new repository in your account called "CPAN202". Be sure to include "node" as the .gitignore template, and choose the MIT license. Allow the site to generate a default Readme.md file.
