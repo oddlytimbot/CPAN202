@@ -37,3 +37,7 @@ Add and commit the Readme file.
 Push the branch to the remote repository.
 
 Merge the "week1" branch into the "master" branch.
+
+### Additional Resources
+
+[Basic Branching and Merging in Git](https://git-scm.com/book/en/v2/Git-Branching-Basic-Branching-and-Merging)
