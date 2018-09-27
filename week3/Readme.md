@@ -61,6 +61,276 @@ From the document above, we might note some similarities to HTML. However, XML a
 
 This said, XML does use a similar element/tag structure to HTML and should be familiar to HTML developers. XML is often a complement to HTML, used for data structure, while HTML is used for display.
 
+## XML Does Not Use Predefined Tags
+The XML language has no predefined tags.
+The tags in the example above (like `<to>` and `<from>`) are not defined in any XML standard. These tags are "created" by the author of the XML document. This is nice because no predefined set of tags can cover all data needs.
+ 
+HTML works with predefined tags like `<p>`, `<h1>`, `<table>`, etc.
+
+With XML, the author must define both the tags and the document structure.
+
+## XML can be Extended
+Most XML applications will work as expected even if new data is added (or removed). This is referred to as extensibility.
+ 
+Imagine an application designed to display the original version of note.xml as seen above.
+ 
+Then imagine a newer version of note.xml with added `<date>` and `<hour>` elements, and a removed `<heading>`. The original XML document can be added to, and it will not break the original application, but the additional data can support the creation of the version 2 software.
+
+```html
+<note>
+  <date>2015-09-01</date>
+  <hour>08:30</hour>
+  <to>Timbot</to>
+  <from>Mila</from>
+  <heading>OMG awkward...</heading>
+  <body>Did I leave anything at your place?</body>
+</note>
+```
+
+## XML Creates Data Separation
+XML does not carry any information about how to be displayed the way HTML does. (That said, complementary formats like XSLT can transform XML to markup with display information - more on this later)
+The same XML data can be used in many different presentation scenarios.
+Because of this, with XML, there is a full separation between data and presentation.
+ 
+* When displaying data in HTML, you should not have to edit the HTML file when the data changes.
+* With XML, the data can be stored in separate XML files.
+* With a few lines of JavaScript code, you can read an XML file and update the data content of any HTML page.
+ 
+Now that we know something about the purpose of XML, let’s take a look at how to create data structures.
+
+## XML Tree Structure
+XML documents are formed as element trees.
+An XML tree starts at a root element and branches from the root to child elements.
+All elements can have sub elements (child elements):
+ 
+Pseudo-markup example:
+ 
+ ```html
+<root>
+  <child>
+    <subchild>.....</subchild>
+  </child>
+  <child>
+    <subchild>.....</subchild>
+  </child>
+</root>
+ ```
+
+The terms parent, child, and sibling are used to describe the relationships between elements.
+ 
+Parents have children. Children have parents. Siblings are children on the same level (brothers and sisters).
+ 
+The child elements in the example above would be said to be siblings because they have the same parent, the root element.
+
+A few notes on XML documents:
+ 
+* XML documents can contain international characters.
+* To avoid errors, you should specify the encoding used, or save your XML files as UTF-8.
+* UTF-8 is the default character encoding for XML documents.
+ 
+ 
+All well-formed XML documents should have a prolog that describes metadata of the document, must have a root element, and elements that consist of opening and closing tags.
+ 
+The prolog looks like this:
+ 
+`<?xml version="1.0" encoding="UTF-8"?>`
+ 
+It should be noted that the prolog is not considered part of the XML document, but rather it indicates to the client application that the following text should be considered XML formatted.
+ 
+The root element is usually named to describe the contents of the data it contains.
+ 
+`<movies>`
+ 
+Text comes the data nodes that describe the data structure. In this case, books. We will find a parent element, then children elements that describe each relevant item about the node.
+ 
+ ```html
+  <video category="horror">
+    <title lang="en">Nightmare on Elm Street</title>
+    <director>Wes Craven</director>
+    <year>1984</year>
+    <price>30.00</price>
+  </video>
+ ```
+
+Finally, the root element must be closed. In XML, it is illegal to omit the closing tag. All elements must have a closing tag.
+ 
+`</movies>`
+
+## XML Tags are Case Sensitive
+XML tags are case sensitive. The tag <Letter> is different from the tag `<letter>`.
+Opening and closing tags must be written with the same case:
+ 
+`<price>30.00</price>`
+ 
+Now that we have the basic idea of how XML is formed, lets dig a bit deeper into the details of Elements, Attributes, and learn about Namespaces.
+
+## What is an XML Element?
+An XML element is everything from (including) the element's start tag to (including) the element's end tag.
+ 
+An element can contain:
+
+* text
+* attributes
+* other elements
+* or a mix of the above
+
+## Empty XML Elements
+An element with no content is said to be empty.
+ 
+`<element></element>`
+ 
+Or…
+ 
+`<element />`
+
+## XML Naming Rules
+XML elements must follow these naming rules:
+
+* Element names are case-sensitive.
+* Element names must start with a letter or underscore.
+* Element names cannot start with the letters xml (or XML, or Xml, etc).
+* Element names can contain letters, digits, hyphens, underscores, and periods.
+* Element names cannot contain spaces.
+* Any name can be used, no words are reserved (except xml).
+
+## Best Naming Practices
+* Create descriptive names, like this: `<person>`, `<firstname>`, `<lastname>`.
+* Create short and simple names, like this: `<book_title>` not like this: `<the_title_of_the_book>`.
+* Avoid "-". If you name something "first-name", some software may think you want to subtract "name" from "first".
+* Avoid ".". If you name something "first.name", some software may think that "name" is a property of the object "first".
+* Avoid ":". Colons are reserved for namespaces (more later).
+* Non-English letters like éòá are perfectly legal in XML, but watch out for problems if your software doesn't support them.
+
+## XML Attributes
+XML elements can have attributes, just like HTML.
+Attributes are designed to contain data related to a specific element. Consider them “data about the data”.
+ 
+Attribute values must always be quoted. Either single or double quotes can be used. If the attribute value itself contains double quotes you can use single quotes, like in this example:
+ 
+`<artist name='Sean "Puffy" Coombs'>`
+ 
+or you can use character entities:
+ 
+`<artist name="Sean &quot;Puffy&quot; Coombs">`
+
+## Overusing Attributes
+It is very easy to fall into overuse of attributes. This is a weakness of XML which defines no rules for what data should be held in attributes and which in elements. Just know that elements are usually easier to parse, sort, and filter than attributes. Consider two ways of containing date information.
+ 
+ ```html
+<note date="2008-01-10">
+  <to>Timbot</to>
+  <from>Mila</from>
+</note>
+ ```
+
+Secondly…
+ 
+ ```html
+<note>
+  <date>
+    <year>2008</year>
+    <month>01</month>
+    <day>10</day>
+  </date>
+  <to>Timbot</to>
+  <from>Mila</from>
+</note>
+```
+ 
+The second example, while more verbose, will likely be easier to deal with if we need to sort or filter notes by day, month, or year.
+ 
+With a decent understanding of XML, we can move along to looking at some of the differences between it and the newer standard - JSON, or javascript object notation.
+
+## JSON vs XML
+Following 2010, a newer standard called JSON largely took over for XML in data transmission for web applications.
+ 
+### JSON is Like XML Because
+* Both JSON and XML are "self describing" (human readable)
+* Both JSON and XML are hierarchical (values within values)
+* Both JSON and XML can be parsed and used by lots of programming languages
+* Both JSON and XML can be fetched with an XMLHttpRequest
+ 
+### JSON is Unlike XML Because
+* JSON doesn't use tags
+* JSON is less verbose
+* JSON is quicker to read and write
+* JSON can use arrays
+ 
+**Most importantly:**
+ 
+XML has to be parsed with an XML parser. JSON can be parsed by a standard JavaScript function. This cuts out a huge part of the work in dealing with data.
+ 
+For web applications, JSON is faster and easier than XML:
+ 
+*Using XML*
+* Fetch an XML document
+* Use the XML DOM to loop through the document
+* Extract values and store in variables (parsing)
+
+*Using JSON*
+
+* Fetch a JSON string
+* JSON.Parse the JSON string
+
+## JSON Syntax
+JSON syntax is derived from JavaScript object notation syntax:
+ 
+* Data is in name/value pairs
+* Data is separated by commas
+* Curly braces hold objects
+* Square brackets hold arrays
+ 
+In this respect, JSON looks very much like simple Javascript, because it basically is.
+ 
+ ```javascript
+{"employees":[
+	{ "firstName":"Tim", "lastName":"Bot" },
+	{ "firstName":"Mila", "lastName":"Jovovich" },
+	{ "firstName":"Freddy", "lastName":"Krueger" }
+]}
+ ```
+
+In the example above, we see an array of objects, indicated by nodes of curly-braces (the objects) listed inside square-brackets (the array).
+ 
+To accomplish the same data structure in XML we would need quite a few more elements:
+ 
+ ```html
+<employees>
+    <employee>
+  	  <firstName>Tim</firstName> <lastName>Bot</lastName>
+    </employee>
+    <employee>
+  	  <firstName>Mila</firstName> <lastName>Jovovich</lastName>
+    </employee>
+    <employee>
+  	  <firstName>Freddy</firstName> <lastName>Krueger</lastName>
+    </employee>
+</employees>
+ ```
+
+## Valid Data Types
+In JSON, values must be one of the following data types:
+* strings
+* Numbers (integer or floating point)
+* an object (JSON object)
+* an array
+* a boolean
+* null
+ 
+Functions are not valid JSON types.
+
+Strings in JSON must be written in double quotes.
+Numbers in JSON must be an integer or a floating point.
+Values in JSON can be objects.
+
+```javascript 
+{
+"employee":{ "name":"Timbot", "age":30, "city":"Toronto" }
+}
+```
+
+Data modelling in JSON is quick and less verbose than XML, but employs the same idea of hierarchical structure. For this reason, modelling in either XML or JSON uses the same skill set. Let’s demonstrate this with an assignment.
+
 
 
 
