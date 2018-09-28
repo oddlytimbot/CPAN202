@@ -1,6 +1,8 @@
 # CPAN202
 
-A repository of course materials and examples for CPAN202-XML
+A repository of course materials and examples for CPAN202-XML.
+
+Each lesson is contained in a folder in this repository, named for the week of the lesson. Each lesson has an exercise to complete, some learning material, and example files to look at.
 
 ## Critical Path
 
