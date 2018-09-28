@@ -1,0 +1,10 @@
+<!DOCTYPE food
+[
+<!ELEMENT food (name,price,description,calories, footer)>
+<!ELEMENT name (#PCDATA)>
+<!ELEMENT price (#PCDATA)>
+<!ELEMENT description (#PCDATA)>
+<!ELEMENT calories (#PCDATA)>
+<!ELEMENT copy (#PCDATA)>
+<!ENTITY copyright "Copyright: OddlyStudios.">
+]>

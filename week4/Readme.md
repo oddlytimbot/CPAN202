@@ -95,7 +95,7 @@ Besides enforcing hierarchy, a DTD can also be used to define special characters
 <!DOCTYPE note [
 <!ENTITY nbsp "&#xA0;"> 
 <!ENTITY writer "Writer: Donald Duck.">
-<!ENTITY copyright "Copyright: W3Schools.">
+<!ENTITY copyright "Copyright: OddlyStudios.">
 ]>
 ```
 
