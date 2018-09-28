@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<xs:schema xmlns:xs="http://www.oddlystudios.com/2018/XMLSchema"
+targetNamespace="https://www.oddlystudios.com"
+xmlns="https://www.oddlystudios.com"
+elementFormDefault="qualified">
+
+<xs:element name="food">
+  <xs:complexType>
+    <xs:sequence>
+      <xs:element name="name" type="xs:string"/>
+      <xs:element name="price" type="xs:string"/>
+      <xs:element name="description" type="xs:string"/>
+      <xs:element name="calories" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+</xs:element>
+
+</xs:schema>
