@@ -41,3 +41,12 @@ Merge the "week1" branch into the "master" branch.
 ### Additional Resources
 
 [Basic Branching and Merging in Git](https://git-scm.com/book/en/v2/Git-Branching-Basic-Branching-and-Merging)
+
+*Videos*
+
+[Creating Account, Making a Repo](https://youtu.be/-ngFD7hQ47k)
+
+[Cloning the repo and doing work](https://youtu.be/-A5XawZzsmo)
+
+[Pushing the repo to server, merging to master branch](https://youtu.be/0_ZrKlrlQkE)
+

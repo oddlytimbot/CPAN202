@@ -11,6 +11,14 @@ Each lesson is contained in a folder in this repository, named for the week of t
 Meet the instructor, share a bit about your experience and goals as a developer.
 Assignment: 1 page introductory summary of your background and skills
 
+*Videos*
+
+[Creating Account, Making a Repo](https://youtu.be/-ngFD7hQ47k)
+
+[Cloning the repo and doing work](https://youtu.be/-A5XawZzsmo)
+
+[Pushing the repo to server, merging to master branch](https://youtu.be/0_ZrKlrlQkE)
+
 ### Week 2: Understanding XML
 
 Get to know the basic structure of XML and learn to work with it’s hierarchy. Get introduced to the differences between XML and JSON, and why one format might be used over another.
