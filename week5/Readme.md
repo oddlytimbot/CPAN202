@@ -55,6 +55,27 @@ The `xmlns` reference declares that all the elements in the XML are in the same 
 
 Take a look at the `schemaLocation` attribute. This attribute has two values, separated by a space. The first value is the namespace to use. The second value is the location of the XML schema to use for that namespace, in this case `note.xsd`.
 
+```html
+<?xml version="1.0"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+targetNamespace="https://www.oddlystudios.com"
+xmlns="https://www.oddlystudios.com"
+elementFormDefault="qualified">
+
+<xs:element name="note">
+  <xs:complexType>
+    <xs:sequence>
+      <xs:element name="to" type="xs:string"/>
+      <xs:element name="from" type="xs:string"/>
+      <xs:element name="heading" type="xs:string"/>
+      <xs:element name="body" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+</xs:element>
+
+</xs:schema>
+```
+
 ### Using a Validator
 
 To validate an XML document against and XSD schema requires the use of validation software, outside of the browser.
