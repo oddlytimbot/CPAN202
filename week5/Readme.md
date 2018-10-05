@@ -101,7 +101,23 @@ Since the JSON Schema specification is not yet a standard, we will need a tool t
 
 [AJV on Github](https://github.com/epoberezkin/ajv)
 
+To try out validation with AJV, let's start with client-side validation for the example above.
 
+We will need a way of serving up a web page. For this purpose, we will use Node to get a static server running.
+
+### Install Node
+
+Visit the following link to download and install Node if you do not already have it installed.
+
+[Download Node](https://nodejs.org/en/download/)
+
+Once installed, return to the "week5" folder in your CPAN202 repository.
+
+In the repo for this course, you can find a very simple node server in the week 5 folder, which is simply called "server.js". This server is run with the command `node server.js 9000` which will run the server and set it listening on port 9000. Once this is running, you can visit the server in the browser by navigating to `http://localhost:9000`
+
+The server looks for an index.html file to serve.
+
+In the example folder you can find an HTML file that loads in a sample Javascript file. The JS file includes a data JSON and a schema JSON. The AJV tool is used to validate the data against the schema. Can you spot why the test fails with an error (*hint, look at the required fields)
 
 ## JSON Validation at Database
 
