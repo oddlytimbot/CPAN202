@@ -9,7 +9,63 @@ Schema is  method of validating one XML document via another XML document. The f
 
 This week we continue the discussion of data validation by going deeper with XML schema, and comparing it to two methods for validaing JSON.
 
-## XML Schema Part 2
+## XML Schemas Part 2
+
+Last week we took a quick look at XML Schemas in advance of diving in deeper in this lesson.
+
+Do you recall?
+
+* Schemas are used for validation
+* Schemas support data types, including strings, numbers, booleans
+* Schemas support namespaces and can be extended
+* Schemas are written in XML (and so can be validated themselves!)
+
+### Why Care About Data types?
+
+Support for data types is a huge strength of Schemas over DTD validation.
+
+* It is easier to describe allowable document content
+* It is easier to validate the correctness of data
+* It is easier to define restrictions on data
+* It is easier to define data patterns (data formats)
+* It is easier to convert data between different data types
+
+Additionally because schemas are written in XML, all the extensibility rules apply. In other words, XML schemas can be loaded in and composed with other XML schemas to make fairly complex validators.
+
+### Referencing a Schema in an XML Document
+
+This XML document has a reference to an XML Schema:
+
+```html
+<?xml version="1.0"?>
+
+<note xmlns="https://www.oddlystudios.com"
+xmlns:xsi="http://www.oddlystudios.com/2018/XMLSchema-instance"
+xsi:schemaLocation="https://www.oddlystudios.com note.xsd">
+
+<to>Timbot</to>
+<from>Mila</from>
+<heading>Reminder</heading>
+<body>Don't forget our special weekend!</body>
+</note>
+```
+The schema is contained in the `note.xsd` file, and is in the same local directory with the XML document.
+
+The `xmlns` reference declares that all the elements in the XML are in the same namespace (distinguished by a URL).
+
+Take a look at the `schemaLocation` attribute. This attribute has two values, separated by a space. The first value is the namespace to use. The second value is the location of the XML schema to use for that namespace, in this case `note.xsd`.
+
+### Using a Validator
+
+To validate an XML document against and XSD schema requires the use of validation software, outside of the browser.
+
+Many such validators exist, and some are available online.
+
+Try out the examples in the "xml_examples" folder with an online validator:
+
+[XML XSD Validator](https://www.freeformatter.com/xml-validator-xsd.html)
+
+In the time since 2010, XML has lost favour as a transmission format for data on the web. As such, there are not a lot of validators available for use on modern servers like Node, which tend to support JSON.
 
 ## JSON Validation with Schema
 
