@@ -1,4 +1,7 @@
-Notes for week 5
+Included in this week's examples are:
+
+* A simple node based web server
+* An example of JSON validation with JSON Schema
 
 In the last lesson we looked at validation methods for XML, including DTD and Schema.
 
@@ -101,6 +104,8 @@ Since the JSON Schema specification is not yet a standard, we will need a tool t
 
 [AJV on Github](https://github.com/epoberezkin/ajv)
 
+### Client-Side Validation
+
 To try out validation with AJV, let's start with client-side validation for the example above.
 
 We will need a way of serving up a web page. For this purpose, we will use Node to get a static server running.
@@ -118,6 +123,31 @@ In the repo for this course, you can find a very simple node server in the week 
 The server looks for an index.html file to serve.
 
 In the example folder you can find an HTML file that loads in a sample Javascript file. The JS file includes a data JSON and a schema JSON. The AJV tool is used to validate the data against the schema. Can you spot why the test fails with an error (*hint, look at the required fields)
+
+### Server-side Validation
+
+For our next example, we will detect errors server-side using a node application. We will use the same validation tool AJV for this - showing that the same javascript library can be used in both situations.
+
+Take a look at server-validation.js, and try running it with the command:
+
+ `node server-validation.js`
+
+ In this case the validation process is the same, but is performed by a node module entirely server-side.
+
+ The output from the console should indicate the error, and it does so as a json object.
+
+ ```javascript
+ [ { keyword: 'required',
+    dataPath: '',
+    schemaPath: '#/required',
+    params: { missingProperty: 'productName' },
+    message: 'should have required property \'productName\'' } ]
+
+```
+
+With these two examples, we can see a method of validating JSON both client-side and server-side.
+
+All of this said, it is important to remember that JSON Schema is a specification, but not yet a standard. Therefore it is important to know about other ways that validation is achieved in the Javascript world.
 
 ## JSON Validation at Database
 
