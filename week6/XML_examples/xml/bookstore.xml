@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bookStore>
+    <book>
+        <title>Harry Potter</title>
+        <author>J K. Rowling</author>
+        <year>2005</year>
+        <price cur="usd">29.99</price>
+    </book>
+    <book>
+        <title>Great Divide</title>
+        <author>Timly K. Bot</author>
+        <year>2097</year>
+        <price cur="usd">29.99</price>
+    </book>
+</bookStore>
