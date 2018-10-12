@@ -37,6 +37,9 @@ Understand how to impose mandatory structure on documents, and why we do it. Kno
 Assignment 3: Validate your XML document using DTD.
 
 ### Week 5: Validation Part Two
+
+This week we use XSL and schema to validate XML. At the same time, we'll look at an option to apply schema validation to the more modern JSON format, and we will get an introduction to using Node and NPM.
+
 Assignment 4: Recreate your DTD validator using Schema, updated to validate datatypes.
 
 ### Week 6: Parsing Data
