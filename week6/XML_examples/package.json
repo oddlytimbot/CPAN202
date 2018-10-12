@@ -1,0 +1,19 @@
+{
+  "name": "oddly",
+  "version": "1.0.0",
+  "description": "Week 6 lesson material Humber CPAN",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://oddlylabs.com/Humber/CPAN202/src/week6/week6"
+  },
+  "author": "OddlyTimbot",
+  "license": "ISC",
+  "dependencies": {
+    "ajv": "^6.5.4"
+  }
+}
