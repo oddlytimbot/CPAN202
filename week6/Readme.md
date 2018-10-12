@@ -81,4 +81,6 @@ In this example, we will assume that the XML document will be loaded in via some
 
 As we did last week, we will use a Node based static server to run our tests.
 
+The server will provide access to the HTML page, which will load in the Javascript. The Javascript will then need to load in the xml document, handle success or failure. Upon success, the responseText must be converted into an XML object which can then be parsed using Xpath.
+
 
