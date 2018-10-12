@@ -1,8 +1,7 @@
 <?xml version="1.0"?>
 
 <note xmlns="https://www.oddlystudios.com"
-xmlns:xsi="http://www.oddlystudios.com/2018/XMLSchema-instance"
-xsi:schemaLocation="https://www.oddlystudios.com note.xsd">
+xmlns:xsi="http://www.oddlystudios.com/2018/XMLSchema-instance">
 
 <to>Timbot</to>
 <from>Mila</from>
