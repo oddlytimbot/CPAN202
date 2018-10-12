@@ -134,4 +134,70 @@ console.log("Number of books: "+bookCount.numberValue);
   
 ```
 
+The line above is an example of an Xpath evaluation. The `evaluate` function accepts parameters in this order:
 
+`document.evaluate( xpathExpression, contextNode, namespaceResolver, resultType, result )`
+
+* xpathExpression - XPath uses path expressions to select nodes in an XML document. The node is selected by following a path or steps.
+* contextNode - A node in the document against which the xpathExpression should be evaluated, including any and all of its child nodes. The document node is the most commonly used.
+* namespaceResover - a function that specifies how to resolve nameSpaces, supplying them if they have been used in the XML document
+* resultType - a filter that specifies the desired result type to be returned as a result of the evaluation. The most commonly passed constant is XPathResult.ANY_TYPE.
+* result - if an xpathResult object is passed to this parameter, it will be used to append results on to. This is used for chaining together multiple queries
+
+An xpathExpression will always include a node selector, which has a specific format. The most common formats for selectors look like this:
+
+* `nodename`	Selects all nodes with the name "nodename"
+* `/`	Selects from the root node
+* `//`	Selects nodes in the document from the current node that match the selection no matter where they are
+* `.`	Selects the current node
+* `..`	Selects the parent of the current node
+* `@`	Selects attributes
+
+In our example above, we have selected all the nodes in the document that match the name 'book'. We have then used a function to count them. This creates a result from our evaluate call.
+
+The `evaluate` returns a type called an xpathResult, which itself includes methods for retrieving the information from the expression. These are used to achieve type-checking on the result, as they apply types to the information.
+
+The three types are:
+
+* numberValue
+* stringValue
+* booleanValue
+
+We will get into more complex examples of using Xpath, but before we do it would be good to look at how the process is different when using JSON.
+
+## Parsing With JSON
+
+The title 'parsing with JSON' is a bit deceptive, because data arrives from JSON as text (like XML) but formatted in a way that converts it directly to javascript objects.
+
+Loading a JSON document is very much the same as loading an XML document, since both are text-based. In fact we can even use the same `XMLHttpRequest` object even though we are not loading XML.
+
+```Javascript
+function reqListener() {
+    var dcmt = JSON.parse(this.responseText);
+    console.log(dcmt);
+    console.log("Number of books: "+dcmt.bookStore.books.length);
+  }
+  
+  function reqError(err) {
+    console.log('Fetch Error :-S', err);
+  }
+  
+
+  var oReq = new XMLHttpRequest();
+  oReq.onload = reqListener;
+  oReq.onerror = reqError;
+  oReq.open('get', './json/bookstore.json', true);
+  oReq.send();
+  ```
+
+  This example achieves the exact same result as the XML based one, but is notably shorter and does not use any other tools like Xpath.
+
+  Because data arriving as JSON is converted to objects, those objects are accessed using dot-syntax as always. Take a look at the following line:
+
+  `console.log("Number of books: "+dcmt.bookStore.books.length);`
+
+  The only thing in common with XML is that the raw text of the `responseText` must be converted by `JSON.Parse`. But after that we simply use dots to drill into the object. `bookStore` is an object, and `books` is an array with a length property just as we would expect in javascript.
+
+  JSON and Javascript have no concept of nameSpace, and count on object encapsulation for separation of concerns.
+
+  Hopefully these contrasting examples help to illustrate what we covered in an earlier lesson - that both formats are capable and robust. XML is probaby preferable for things like configuration files. JSON is likely the better choice for transmission of data on the web.

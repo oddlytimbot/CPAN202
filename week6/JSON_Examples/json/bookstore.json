@@ -1,0 +1,17 @@
+{
+    "bookStore":{
+        "books":[
+        {
+            "title":"Harry Potter",
+            "author":"J K. Rowling",
+            "year": 2005,
+            "price": 29.99
+        },
+        {
+            "title":"Great Divide",
+            "author":"Timly K. Bot",
+            "year": 2097,
+            "price": 29.99
+        }
+    ]}
+}
