@@ -22,7 +22,7 @@ function reqListener() {
     console.log('Fetch Error :-S', err);
   }
   
-  console.log("loading request");
+
   var oReq = new XMLHttpRequest();
   oReq.onload = reqListener;
   oReq.onerror = reqError;

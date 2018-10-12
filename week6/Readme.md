@@ -81,6 +81,57 @@ In this example, we will assume that the XML document will be loaded in via some
 
 As we did last week, we will use a Node based static server to run our tests.
 
-The server will provide access to the HTML page, which will load in the Javascript. The Javascript will then need to load in the xml document, handle success or failure. Upon success, the responseText must be converted into an XML object which can then be parsed using Xpath.
+The server will provide access to the HTML page, which will load in the Javascript. The Javascript will then need to load in the xml document, handle success or failure. Upon success, the responseText must be converted into an XML object which can then be parsed using Xpath. Let's set that up, then we can look into parsing.
+
+In Javascript, we write two functions. One is for a successful load of the document, and one is to handle a failure.
+
+```javascript
+function reqListener() {
+    var dcmt = this.responseText;
+    console.log(dcmt);//string of xml
+  }
+function reqError(err) {
+    console.log('Fetch Error :-S', err);
+  }
+```
+
+Next we need to create the request object and actually load in the XML.
+
+```javascript
+var oReq = new XMLHttpRequest();
+  oReq.onload = reqListener;
+  oReq.onerror = reqError;
+  oReq.open('get', './xml/bookstore.xml', true);
+  oReq.send();
+```
+
+The object is configured to recognize the success and failure listener functions as callbacks. It is set to do an HTTP GET operation.
+
+Assuming the XML document loads in, we should see it in the console.
+
+At this time, the XML is treated as a single string of text (the `responseText`). That won't do - we need to be able to navigate through the ascender and descender nodes. There is a simple way to do this conversion from text to an xml object, but alas there is a browser incompatability with older IE browsers, so we will also need to use an ActiveX object with those.
+
+```javascript
+var xmlDoc;
+    if (window.DOMParser)
+    {
+        parser = new DOMParser();
+        xmlDoc = parser.parseFromString(dcmt, "text/xml");
+    }
+    else // Internet Explorer
+    {
+        xmlDoc = new ActiveXObject("Microsoft.XMLDOM");
+        xmlDoc.async = false;
+        xmlDoc.loadXML(dcmt);
+    }
+```
+
+In any case, the end-result is an XML object we can navigate with Xpath. Let's use it to see how many books are in the store.
+
+```javascript
+var bookCount = document.evaluate('count(//book)', xmlDoc, null, XPathResult.ANY_TYPE, null );
+console.log("Number of books: "+bookCount.numberValue);
+  
+```
 
 
