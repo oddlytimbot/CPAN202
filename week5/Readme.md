@@ -195,6 +195,30 @@ Visit the following link to download and install Node if you do not already have
 
 Once installed, return to the "week5" folder in your CPAN202 repository.
 
+### Installing Node Modules
+
+Node modules are small applications and plugins written in javascript that can be included into Node applications. There are thousands of popular Node modules for every conceivable use from encrypting passwords to making animated gifs.
+
+Node modules are created by the developer community and registered in a central registry at npmjs.org. And when installed, Node comes with a tool called NPM (node package manager) that makes downloading and installing modules easy.
+
+In the example repo, you can find a file called "package.json". This file has a section in it called "dependencies" that lists out all the modules needed by the node project. Any time you find a package.json file alongside a node application, you likely need to run the following command:
+
+`npm install`
+
+Running this tells NPM to look in the package.json file, find the dependencies, and download them. You will know it has done so because you'll see output on the console and a folder called "node_modules" will appear.
+
+There is a second option. If you know a specific module you wish to use you can install it direction. For example since our project uses "ajv" you could simply try:
+
+`npm install ajv`
+
+And lastly, if you wish to include the module you are installing in the package.json so other developers can easily install it, you can use the "save" flag like this:
+
+`npm instal ajv --save`
+
+Once you have used npm to install the module dependency, you're ready to run the node application!
+
+### Running the Node App
+
 In the repo for this course, you can find a very simple node server in the week 5 folder, which is simply called "server.js". This server is run with the command `node server.js 9000` which will run the server and set it listening on port 9000. Once this is running, you can visit the server in the browser by navigating to `http://localhost:9000`
 
 The server looks for an index.html file to serve.
