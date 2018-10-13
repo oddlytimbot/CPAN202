@@ -9,6 +9,10 @@ Schema is  method of validating one XML document via another XML document. The f
 
 This week we continue the discussion of data validation by going deeper with XML schema, and comparing it to two methods for validaing JSON.
 
+*Videos*
+* [Walkthrough with Node and NPM](https://youtu.be/O_abxL5JtsQ)
+* [Handling Issues with Git](https://youtu.be/qQST8pCXIR0)
+
 ## XML Schemas Part 2
 
 Last week we took a quick look at XML Schemas in advance of diving in deeper in this lesson.
