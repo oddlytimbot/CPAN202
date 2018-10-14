@@ -19,6 +19,8 @@ Assignment: 1 page introductory summary of your background and skills
 
 [Pushing the repo to server, merging to master branch](https://youtu.be/0_ZrKlrlQkE)
 
+[Disabling password manager in Git](https://youtu.be/ALsE6f_DqAU)
+
 ### Week 2: Understanding XML
 
 Get to know the basic structure of XML and learn to work with it’s hierarchy. Get introduced to the differences between XML and JSON, and why one format might be used over another.
