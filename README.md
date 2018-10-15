@@ -47,6 +47,9 @@ This week we use XSL and schema to validate XML. At the same time, we'll look at
 Assignment 4: Recreate your DTD validator using Schema, updated to validate datatypes.
 
 ### Week 6: Parsing Data
+
+In this lesson, we dig deep into using XPath, and learn about the relationship of parents, children, ascenders and descenders.
+
 Assignment 5: Use XPath to parse the XML DOM, demonstrating sorting and filtering
 
 ### Week 7: Parsing Data Part Two
