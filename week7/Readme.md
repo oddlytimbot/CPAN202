@@ -127,3 +127,110 @@ Take note of the dependencies section.
 
   With the server open in one window, and the client open in another, we will see the client connect to the server - hooray! We now have a working service that uses GraphQL to connect and query a database using JSON.
   
+  ### About The Example
+
+  Let's take a look at the example together now that we have it running.
+
+Web services have typically resided behind REST services, but this approach is not without it's drawbacks in terms of high data demand. In typical REST services we often have to make multiple service calls to get the data we need.
+
+Consider a typical scenario like a blog. We do a service call to get the content of a post, including an ID, then another call to get the comments based on that ID. All of this adds up to extra demands on the system - a high overhead.
+
+GraphQL allows the client side to describe exactly the data it needs, in a single request.
+
+### Setting Up A Server
+
+In our example, we use a Node server running the Express module to establish a GraphQL endpoint.
+
+Whew! What does that mean?
+
+* Node - the server that hears http requests
+* Express - a node module that simplifies receiving and handling requests
+* GraphQL Endpoint - routing that matches requests to queries
+
+How do we go about setting this up?
+
+Files:
+
+*index.js*
+
+This file sets up the Babel module to convert our javascript code to ES5 at runtime. This allows us to write code to the latest ES6 standard without worry that the Node will be unable to interpret it. (This is increasingly unnecessary as all recent versions of Node have full support for ES6 javascript)
+
+*app.js*
+
+This is the most important file. It instantiates the GraphQL endpoint and matches it to a query schema.
+
+```javascript
+app.use('/graphql', graphqlHTTP(req => ({
+  schema,
+  pretty: true
+})));
+```
+
+It connects to the Mongo database.
+
+`mongoose.connect('mongodb://localhost/graphql');`
+
+And it sets the Node Express server listening to http requests.
+
+```javascript
+var server = app.listen(8080, () => {
+  console.log('Listening at port', server.address().port);
+});
+```
+
+The most notable part of this setup is where we define the GraphQL route. We are doing this with an Express middleware (a module that will process the HTTP request through GraphQL and return a JSON-formatted response). The middleware consults the GraphQL schema to translate the HTTP request to a query.
+
+### Planning The Schema
+
+For GraphQL to perform an operation at the database it needs a schema. In GraphQL, a schema is defined as a group of queries (gets information out of the database) and mutations (makes changes in the database).
+
+### Models
+
+In this stack, models are used to validate data. Mongoose is a popular validation tool for the Mongoose database, whose job is to ensure no invalid data gets into the database. We have two validation models - one for *blog-post* and another for *comment*. They look very much like our earlier examples with Schemas (in XML) or JSON-schema (with the ADJ module).
+
+```javascript
+var blogPostSchema = new mongoose.Schema({
+  title: {
+    type: String,
+    required: true
+  },
+  description: {
+    type: String
+  }
+});
+```
+
+The model above ensures that a blog-post must have a title. Optionally it can have a description. Both these properties are allowed to be strings.
+
+### GraphQL and Models
+
+Mongoose models validate data at the database level. GraphQL Types define what data is allowed in a request, and what should be sent in the response. You can find some in the 'types' folder. Take a look at `comment.js`.
+
+``` javascript
+export default new GraphQLObjectType({
+    name: 'Comment',
+    fields: {
+      _id: {
+        type: new GraphQLNonNull(GraphQLID)
+      },
+      postId: {
+        type: new GraphQLNonNull(GraphQLID)
+      },
+      text: {
+        type: GraphQLString
+      }
+    }
+  });
+```
+
+This type indicates that the *comment* type is allowed an _id, a postId, and text. When an HTTP request for a query or mutation comes in concerning comments, this type will be checked to see if the request fulfills all the information needed to do the job.
+
+You'll notice that the Mongoose models resemble the GraphQL types but they serve two different purposes. The Mongoose model defines data structure at the database. A GraphQL type defines a rule for what is acceptable in a request for a query or mutation.
+
+### Making the Schema
+
+With our Mongoose models and GraphQL types, we can now define a schema. Take a look at `/graphql/index.js`
+
+
+
+
