@@ -64,7 +64,7 @@ Lately Mongo has been pushing their cloud services, but the free community editi
 
 [Installation Instructions](https://docs.mongodb.com/manual/administration/install-community/)
 
-Extract the zip file you download. Alternatively, you can also download the MSI installer if you are on a Windows system.
+Extract the zip file you download. 
 
 Place the "bin" folder at a location you are comfortable with. The suggestion on Windows is to place it at `C:\Program Files\MongoDB\Server\4.0\`
 
@@ -72,7 +72,7 @@ If you like, you can add this location to your PATH on Windows.
 
 [Adding Environment Variables](https://www.howtogeek.com/118594/how-to-edit-your-system-path-for-easy-command-line-access/)
 
-MongoDB Community Edition requires Microsoft Windows Server 2008 R2 or later or Microsoft Windows 7 or later for the x86 64-bit architecture. If you are unsure about your Windows installation, the MSI is a better option.
+Alternatively, you can also download the MSI installer if you are on a Windows system. MongoDB Community Edition requires Microsoft Windows Server 2008 R2 or later or Microsoft Windows 7 or later for the x86 64-bit architecture. If you are unsure about your Windows installation, the MSI is a better option.
 
 **Start the Server**
 
@@ -116,4 +116,10 @@ Take note of the dependencies section.
   `npm install`
 
   This will cause NPM to look in the package.json and install all dependencies into your 'node_modules' folder.
+
+  With the dependencies installed, you're ready to run the example, with the following command:
+
+  `npm start`
+
+  With the server open in one window, and the client open in another, we will see the client connect to the server - hooray! We now have a working service that uses GraphQL to connect and query a database using JSON.
   
