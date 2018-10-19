@@ -1,9 +1,7 @@
 import {
-    GraphQLList,
-    GraphQLID,
-    GraphQLNonNull
+    GraphQLNonNull,
+    GraphQLID
   } from 'graphql';
-  import {Types} from 'mongoose';
   
   import blogPostType from '../../types/blog-post';
   import getProjection from '../../get-projection';
@@ -12,17 +10,23 @@ import {
   export default {
     type: blogPostType,
     args: {
-      id: {
-        name: 'id',
+      _id: {
+        name: '_id',
         type: new GraphQLNonNull(GraphQLID)
       }
     },
-    resolve (root, params, options) {
+    async resolve (root, params, options) {
       const projection = getProjection(options.fieldASTs[0]);
-  
-      return BlogPostModel
-        .findById(params.id)
-        .select(projection)
+      const removedBlogPost = await BlogPostModel
+        .findByIdAndRemove(params._id, {
+          select: projection
+        })
         .exec();
+  
+      if (!removedBlogPost) {
+        throw new Error('Error removing blog post');
+      }
+  
+      return removedBlogPost;
     }
   };

@@ -1,5 +1,5 @@
 import comment from './single';
-import comments from './mutiple';
+import comments from './multiple';
 
 export default {
   comment,

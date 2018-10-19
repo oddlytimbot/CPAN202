@@ -58,6 +58,43 @@ Along with Node, the installer would have installed NPM the node package manager
 
 For this example we will use MongoDB as our database. Along with the database we will need a client-driver used to connect and talk with the database.
 
+Lately Mongo has been pushing their cloud services, but the free community edition of Mongo is still available at the following link:
+
+[Download Mongo 4.0.3](https://www.mongodb.com/download-center/v2/community)
+
+[Installation Instructions](https://docs.mongodb.com/manual/administration/install-community/)
+
+Extract the zip file you download. Alternatively, you can also download the MSI installer if you are on a Windows system.
+
+Place the "bin" folder at a location you are comfortable with. The suggestion on Windows is to place it at `C:\Program Files\MongoDB\Server\4.0\`
+
+If you like, you can add this location to your PATH on Windows.
+
+[Adding Environment Variables](https://www.howtogeek.com/118594/how-to-edit-your-system-path-for-easy-command-line-access/)
+
+MongoDB Community Edition requires Microsoft Windows Server 2008 R2 or later or Microsoft Windows 7 or later for the x86 64-bit architecture. If you are unsure about your Windows installation, the MSI is a better option.
+
+**Start the Server**
+
+On Windows, you will use the command prompt to start up the mongo server, and specify a location to store your mongo databases. Using the command-line interpreter you will issue this command:
+
+`"C:\Program Files\MongoDB\Server\4.0\bin\mongod.exe" --dbpath="c:\data\db"`
+
+The command-line will issue a stream of information as the server opens up, ending in 'waiting for connections on port 27017'.
+
+Keep that command-line window open to keep the server running.
+
+In a second command-line window, use the client to connect to the server:
+
+`"C:\Program Files\MongoDB\Server\4.0\bin\mongo.exe"`
+
+You should see the client connect and you'll be left with an interpretive prompt you can use to run commands in your mongo databases. Try this command:
+
+`show dbs`
+
+This will show you any mongo databases currently installed. Among them will be the default "admin", "config", and "local" databases. You're ready to do some database work!
+
+
 ### Node Dependencies
 
 We need several Node modules for this example. These are outlined in the `package.json` configuration file for easy installation.
@@ -73,3 +110,10 @@ Take note of the dependencies section.
     "mongoose": "^4.3.5"
   }
   ```
+
+  From inside the 'week7/graphql-server' folder, run the following command using your terminal program:
+
+  `npm install`
+
+  This will cause NPM to look in the package.json and install all dependencies into your 'node_modules' folder.
+  
