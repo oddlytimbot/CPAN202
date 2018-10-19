@@ -54,6 +54,10 @@ For this lesson we will need Node. You should have this already installed on you
 
 Along with Node, the installer would have installed NPM the node package manager, which we will use for installing some other tools.
 
+Here is a handy video that walks through getting the example code up and running!
+
+[Watch The Video](https://youtu.be/qmcH86ncLxE)
+
 ### Mongo
 
 For this example we will use MongoDB as our database. Along with the database we will need a client-driver used to connect and talk with the database.
