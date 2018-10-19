@@ -57,3 +57,19 @@ Along with Node, the installer would have installed NPM the node package manager
 ### Mongo
 
 For this example we will use MongoDB as our database. Along with the database we will need a client-driver used to connect and talk with the database.
+
+### Node Dependencies
+
+We need several Node modules for this example. These are outlined in the `package.json` configuration file for easy installation.
+
+Take note of the dependencies section.
+
+```javascript
+"dependencies": {
+    "babel": "^5.8.23",
+    "express": "^4.13.3",
+    "express-graphql": "^0.4.5",
+    "graphql": "^0.4.14",
+    "mongoose": "^4.3.5"
+  }
+  ```
