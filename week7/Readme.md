@@ -38,7 +38,11 @@ The problem with REST based services (whether they serve XML or JSON) is that th
 
 [More About GraphQL vs. REST](https://www.howtographql.com/basics/1-graphql-is-the-better-rest/)
 
-It is particularly notable that **all** AI and machine-learning APIs today are JSON-based. It is unlikely that XML will make a comeback.
+It is particularly notable that **all** AI and machine-learning APIs today are JSON-based. It is unlikely that XML would be used for transmission of data in a web service today.
+
+A far more likely scenario would be to institute a GraphQL thin layer. This is an endpoint that would stand between the client and the legacy XML services, translate them to JSON, and serve them back to queries. In the GraphQL world, the server that does this is said to have "resolvers".
+
+In GraphQL, resolvers can be created for any data source - XML, REST services, Micro-services, Web Sockets - anything. This has made the format the logical choice for most projects since support for legacy systems is built-in, while allowing the use of modern client-side frameworks like React and Angular that are JSON based.
 
 In this lesson, we will create a full example of a modern development stack that utilizes Javascript-based technologies for serving up JSON.
 
