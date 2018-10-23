@@ -233,9 +233,9 @@ In the example folder you can find an HTML file that loads in a sample Javascrip
 
 For our next example, we will detect errors server-side using a node application. We will use the same validation tool AJV for this - showing that the same javascript library can be used in both situations.
 
-Take a look at server-validation.js, and try running it with the command:
+Take a look at node-validator.js, and try running it with the command:
 
- `node server-validation.js`
+ `node node-validator.js`
 
  In this case the validation process is the same, but is performed by a node module entirely server-side.
 
