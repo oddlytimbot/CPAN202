@@ -34,7 +34,15 @@ This trend is going to continue. Today efforts are based on better utilizing the
 
 GraphQL is a standard for querying JSON-based services. It was created by Facebook to address the growing number of ways that service may be offered. In the past, REST was the popular standard, but today there are a wide variety of ways to offer services, many of them based on web-sockets (a popular example being Firebase by Google).
 
-It is particularly notable that **all** AI and machine-learning APIs today are JSON-based. It is unlikely that XML will make a comeback.
+The problem with REST based services (whether they serve XML or JSON) is that they are vulnerable to over or under-fetching. This is a situation where several REST calls must be made to get all the data required, or extraneous data is returned that isn't needed by the client, which is wasteful both in terms of bandwidth and memory. To address this, the GraphQL standard was created, which allows the client to specify the data structure it needs to the service. GraphQL works only with JSON, putting XML further behind in modern development.
+
+[More About GraphQL vs. REST](https://www.howtographql.com/basics/1-graphql-is-the-better-rest/)
+
+It is particularly notable that **all** AI and machine-learning APIs today are JSON-based. It is unlikely that XML would be used for transmission of data in a web service today.
+
+A far more likely scenario would be to institute a GraphQL thin layer. This is an endpoint that would stand between the client and the legacy XML services, translate them to JSON, and serve them back to queries. In the GraphQL world, the server that does this is said to have "resolvers".
+
+In GraphQL, resolvers can be created for any data source - XML, REST services, Micro-services, Web Sockets - anything. This has made the format the logical choice for most projects since support for legacy systems is built-in, while allowing the use of modern client-side frameworks like React and Angular that are JSON based.
 
 In this lesson, we will create a full example of a modern development stack that utilizes Javascript-based technologies for serving up JSON.
 
@@ -136,6 +144,12 @@ Web services have typically resided behind REST services, but this approach is n
 Consider a typical scenario like a blog. We do a service call to get the content of a post, including an ID, then another call to get the comments based on that ID. All of this adds up to extra demands on the system - a high overhead.
 
 GraphQL allows the client side to describe exactly the data it needs, in a single request.
+
+In previous lessons, we have looked at the concept of schema for validating data. We saw how this originated with XML and would be used to enforce data types and structure on XML documents. We also looked at a schema standard for JSON, and used the AJV module with Node to run schema on JSON data. GraphQL takes a different approach, by applying schema at the query level for the database.
+
+GraphQL uses a strong type system to define the capabilities of an API. All the types that are exposed in an API are written down in a schema using the GraphQL Schema Definition Language (SDL). This schema serves as the contract between the client and the server to define how a client can access the data.
+
+In this week's example, we will see the GraphQL schema defenition and strong-type combination at work.
 
 ### Setting Up A Server
 
