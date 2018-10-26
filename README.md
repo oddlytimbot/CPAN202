@@ -55,8 +55,8 @@ Assignment 5: Use XPath to parse the XML DOM, demonstrating sorting and filterin
 ### Week 7: Parsing Data Part Two
 Assignment 6: Use javascript functions to sort and filter JSON data
 
-### Week 8: Web Serving
-Assignment 7: Create a Node server capable of responding to service calls
+### Week 8: Check In
+We actually got to running a Node server a little early (in lab 7). So this week will be a check-in on progress.
 
 ### Week 9: Web Serving Part Two
 Assignment 8: Have your node server respond with XML data based on service requests from the client
