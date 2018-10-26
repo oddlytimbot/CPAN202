@@ -45,6 +45,7 @@ The assignments in week 1 are about getting your development environment set up 
  Perhaps you've been intimidated to use Git. I will say it again - use of Git is not optional. No development environment that you will ever want to work in will accept a developer who has no knowledge of code versioning. If that is holding you back, I will help you! I will help you until it is working.
 
  [Git Help with Danny Gonzalez](https://oddlylabs.com/n01082049/CPAN202/issues/1)
+ 
  [Git Help for Atheya](https://oddlylabs.com/Atheya/CPAN202/issues/1)
 
  Perhaps something has been unclear in the material or directions. *Ask me* about it! When any student flags an issue, I update the material so everyone can benefit. I make additional materials and provide them to everyone.
