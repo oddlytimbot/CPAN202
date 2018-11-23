@@ -11,7 +11,7 @@ Each lesson is contained in a folder in this repository, named for the week of t
 Meet the instructor, share a bit about your experience and goals as a developer.
 Assignment: 1 page introductory summary of your background and skills
 
-*Videos*
+_Videos_
 
 [Creating Account, Making a Repo](https://youtu.be/-ngFD7hQ47k)
 
@@ -53,25 +53,33 @@ In this lesson, we dig deep into using XPath, and learn about the relationship o
 Assignment 5: Use XPath to parse the XML DOM, demonstrating sorting and filtering
 
 ### Week 7: Parsing Data Part Two
+
 Assignment 6: Use javascript functions to sort and filter JSON data
 
 ### Week 8: Check In
+
 We actually got to running a Node server a little early (in lab 7). So this week will be a check-in on progress.
 
 ### Week 9: Web Serving Part Two
+
 Assignment 8: Have your node server respond with XML data based on service requests from the client
 
 ### Week 10: Web Serving Part Three
-Assignment 9: Have your service respond with JSON data to service requests
+
+Assignment 9: Have your service respond with JSON data to service requests using a GraphQL endpoint
 
 ### Week 11: Intro to Frameworks
+
 Assignment 10: Create your first React application
 
 ### Week 12: Routing in React
+
 Assignment 11: Use React-Router to set up routing client-side, consume web services
 
 ### Week 13: Components
+
 Assignment 12: Use React components to sort and filter JSON-based data from your service
 
 ### Week 14: Security
+
 Assignment 13: Restrict access to services behind password authentication
