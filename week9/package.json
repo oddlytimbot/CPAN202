@@ -1,0 +1,17 @@
+{
+  "name": "week9",
+  "version": "1.0.0",
+  "description": "Wrapping a legacy XML service with modern JSON wrapper",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "OddlyTimbot",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.16.4",
+    "node-libxml": "^3.2.3",
+    "xml2js": "^0.4.19",
+    "xmldom": "^0.1.27"
+  }
+}
