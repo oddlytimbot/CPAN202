@@ -296,3 +296,27 @@ Visit the URL again
 `http://localhost:8081/menu`
 
 You'll see nicely formatted JSON with the same data that our XML service provided.
+
+## Coming Up
+
+In the next lesson, we will revisit the GraphQL endpoint we created in week 7. We will create a new GraphQL endpoint that stands between the client (browser) and our REST service.
+
+Today there is a huge push to convert APIs to GraphQL and away from exposing REST services. Why is this?
+
+Well look at our service now. When we ask for the food items, it returns all of them at once.
+
+But what if we only wanted items lower than 600 calories? Or perhaps items less than \$5 in price?
+
+The REST specification makes no strong recommendations on how to handle such sorting and filtering, instead leaving it up to the developer to decide on best practices.
+
+As a result, _almost every REST service functions slightly differently from other REST services._
+
+Even in the same organization, you'll see multiple versions of the same API as decisions are made, then revised, then revised again about how to handle the specifics of the four "verbs". All of this leads to a great deal of inefficiency.
+
+GraphQL is a proposed standard for APIs that allows the client to specify the exact information it wants. It is much more specific than the REST standard.
+
+In our scenario, we are going to move our fictional organization forward to this latest standard - all while avoiding service disruptions to their older XML-based services.
+
+Sounds good yes?
+
+Let's step into the future!
