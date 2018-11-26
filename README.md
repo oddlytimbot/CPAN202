@@ -2,6 +2,8 @@
 
 A repository of course materials and examples for CPAN202-XML.
 
+In this course, we will examine the origins of web services, a progress along to modernizing a legacy XML-based service to be up-to-date with current formats like JSON, and standards like GraphQL.
+
 Each lesson is contained in a folder in this repository, named for the week of the lesson. Each lesson has an exercise to complete, some learning material, and example files to look at.
 
 ## Critical Path
