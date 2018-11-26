@@ -19,6 +19,10 @@ While completing this assignment, keep the documentation open that details best 
 - think about good uses for [attributes](https://oddlylabs.com/Humber/CPAN202/src/master/week3#overusing-attributes)
 - follow [best-practices for naming](https://oddlylabs.com/Humber/CPAN202/src/master/week3#xml-naming-rules) XML nodes
 
+### Deliverables
+
+When completed, you should have a menu.xml document, a menu.json document inside your week3 folder, that you have worked on in a "week3" branch. Add, commit, and push this to your repo. Then create a pull request to merge your week3 work to the master branch.
+
 ## Coming Up
 
 In upcoming lessons we will learn how to parse, sort, and filter data. We will gain the critical skill of imposing validation on the data structure.
