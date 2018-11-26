@@ -1,3 +1,5 @@
+# Welcome Aboard
+
 Hello friends, and welcome to CPAN-202, your course on XML and web services.
 
 Below you can find an example biography, written using markdown. You will be completing a similar biography, and commiting it into a code repository.
@@ -11,6 +13,10 @@ _With this first assignment, you will learn about:_
 - Creating markdown - markdown format is the most popular means for documenting projects, allowing quick formatting of text
 - Installing Git - the number one tool for code versioning
 - Working with the command-line
+
+Be sure to look at the [assignment details](https://oddlylabs.com/Humber/CPAN202/src/master/week1/Assignment.md)
+
+---
 
 ## About the Professor
 
