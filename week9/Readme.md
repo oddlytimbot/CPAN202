@@ -14,12 +14,12 @@ This task is complicated by the fact that the XML uses a number of older convent
 
 You should use the xml you have created in previous weeks in the following steps. Examples have been provided to follow along with, but you should have your own unique XML file and work through the following steps with it. In doing so, you will demonstrate:
 
-* Using XSLT to transform an XML document (using Saxon)
-* Using DTD to embed entities
-* Using Schema for validation
-* Converting XML to JSON
-* Serving up data via REST API
-* Setting up a GraphQL endpoint
+- Using XSLT to transform an XML document (using Saxon)
+- Using DTD to embed entities
+- Using Schema for validation
+- Converting XML to JSON
+- Serving up data via REST API
+- Setting up a GraphQL endpoint
 
 Detailed instructions follow.
 
@@ -82,7 +82,24 @@ As a result, this library has support for DTD and Schema. It can even use extern
 
 Go ahead and try out index2.js using `node index2.js`.
 
-Note in your console that the program is capable of indicating whether the XML is well-formed, and can apply a DTD. Our copyright information gets transformed as we would expect it to.
+Note in your console that the program is capable of indicating whether the XML is well-formed, and can apply a DTD. Our copyright information gets transformed as we would expect it to. If you run the provided example, you should see output like this:
+
+```
+true
+undefined
+{ name: 'breakfast_menu', externalId: null, systemId: null }
+
+    Strawberry Belgian Waffles
+    $7.95
+    Light Belgian waffles covered with strawberries and whipped cream
+    900
+    Copyright: OddlyStudios.
+
+```
+
+- true - indicates the document is valid
+- undefined - the error object (contains no errors)
+- The copyright is no longer an entity - it has been updated with a value from the DTD
 
 But this module is not without issues. For one, it is only possible to retrieve data from the document using Xpath selectors. If we want to treat the entire document as JSON, there is no easy way to do it.
 
