@@ -70,6 +70,10 @@ Assignment 8: Have your node server respond with XML data based on service reque
 
 Assignment 9: Have your service respond with JSON data to service requests using a GraphQL endpoint
 
+**Further Study**
+
+_The following are optional modules for continues study that moves into serving data at the front-end. These can be included here or handled in the Full Stack Developer course._
+
 ### Week 11: Intro to Frameworks
 
 Assignment 10: Create your first React application
